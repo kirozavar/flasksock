@@ -11,6 +11,7 @@
                     var transcriptionList = document.getElementById("transcriptionList");
                     transcriptionList.innerHTML = "";  // Clear existing content
                     transcriptions.forEach(function(text) {
+                        console.log(text);
                         var li = document.createElement("li");
                         li.appendChild(document.createTextNode(text));
                         transcriptionList.appendChild(li);

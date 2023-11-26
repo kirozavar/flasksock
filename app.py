@@ -9,11 +9,11 @@ sock = Sock(app)
 
 transcriptions = ["test"]
 
-@app.route('/')
+@app.route('/test')
 def test():
     return "test"
 
-@app.route('/do')
+@app.route('/')
 def index():
     return render_template('index.html', transcriptions=transcriptions)
 
