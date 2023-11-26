@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transcriptions</title>
+    <script>
+        function fetchTranscriptions() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var transcriptions = JSON.parse(xhr.responseText);
+                    var transcriptionList = document.getElementById("transcriptionList");
+                    transcriptionList.innerHTML = "";  // Clear existing content
+                    transcriptions.forEach(function(text) {
+                        var li = document.createElement("li");
+                        li.appendChild(document.createTextNode(text));
+                        transcriptionList.appendChild(li);
+                    });
+                }
+            };
+            xhr.open("GET", "/get_transcriptions", true);
+            xhr.send();
+        }
+
+        setInterval(fetchTranscriptions, 2000); // Fetch every 2000 milliseconds (2 seconds)
+    </script>
+</head>
+<body>
+    <h1>Continuous Transcriptions</h1>
+    <ul id="transcriptionList"></ul>
+</body>
+</html>
