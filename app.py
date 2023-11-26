@@ -8,6 +8,10 @@ sock = Sock(app)
 def index():
     return "testtttt"
 
+@app.route('/test2')
+def test():
+    return "testtttt"
+
 @sock.route('/echo')
 def echo(ws):
     while True:
