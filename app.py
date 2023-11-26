@@ -10,7 +10,7 @@ def index():
 
 @app.route('/test2')
 def test():
-    return "testtttt"
+    return "test2"
 
 @sock.route('/echo')
 def echo(ws):
